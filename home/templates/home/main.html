@@ -1,0 +1,17 @@
+<h1>Welcome</h1>
+<p>Hello World</p>
+<ul>
+<li><p><a href="/polls">A Polls Application</a></p></li>
+<li><p><a href="/hello">Test the session</a></p></li>
+<li><a href="/autos">Autos CRUD</a></li>
+</ul>
+{% if user.is_authenticated %}
+<form method="post" action="{% url 'logout' %}">
+  {% csrf_token %}
+  Logged in as {{ user.username }}
+  <input type="submit" value="Logout">
+</form>
+{% else %}
+<p><a href="{% url 'login' %}?next=/autos">Login</a></p>
+{% endif %}
+<p>05dfff5c</p>
